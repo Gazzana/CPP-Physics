@@ -19,7 +19,7 @@
 <h1 align="center">About The Project</h1>
 
 <p>
-This project is a physics engine that will be able to calculate gravity, forces, mass acceleration and many other physics based calculations. The project will create a window that will make the user be able to visualize everything, create objects and move everything.
+This project is a physics engine that will be able to calculate gravity, forces, mass acceleration and many other physics based calculations. The project will create a window that will enable to visualize everything, create objects and move them.
 </p>
 
 <p> </p>
@@ -27,14 +27,14 @@ This project is a physics engine that will be able to calculate gravity, forces,
 <h3 align="center">Built With</h3>
 
 
-<li>SFML -The project is being built with SFML (Simple and Fast Multimedia Library), witch is a tool compatible with some low level languages, developed for helping programmers to develop games and I am using it just to render objects, create a screen and draw things on it.
+<li>SFML -The project is being built with SFML (Simple and Fast Multimedia Library), which is a tool compatible with some low level languages, developed for helping programmers to develop games and I am using it just to render objects, create a screen and draw things on it.
 </li>
 <ul align="center">
     https://www.sfml-dev.org/index.php
 </ul>
 
 <li>
-  C++ - Also used C++ for this engine, this is literally my first project with C++, but is i'm used to scripting in C# and java, two languages that have similarities with C++</li>
+  C++ - Also used C++ for this engine, this is literally my first project with C++, however, I am used to scripting in C# and java, two languages that have similarities with C++</li>
 
 <h3 align="center">Contact</h3>
 
