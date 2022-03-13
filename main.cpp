@@ -3,56 +3,65 @@
 
 #include "PhysicsObject.h"
 
-int main()
+class mainClass
 {
-    // Create a render window and loop
-    sf::RenderWindow window(sf::VideoMode(800, 600), "C++ Physics", sf::Style::Close | sf::Style::Resize);
-
-    // Must create object out of the loop
-    sf::RectangleShape rect(sf::Vector2f(30.0f, 30.0f));
-    rect.setFillColor(sf::Color::Cyan);
-    rect.setOrigin(15.0f, 15.0f);
-
-    // Attempt to create physics object
-    PhysicsObject myObj(10, 10, 50, sf::Color::Red);
-    myObj.CreateShape();
-    
-    while (window.isOpen())
+    int main()
     {
-        sf::Event evnt;
+        // Create a render window
+        sf::RenderWindow window(sf::VideoMode(800, 600), "C++ Physics", sf::Style::Close | sf::Style::Resize);
 
-        while (window.pollEvent(evnt))
+        // Create object from PhysicsObject class
+        PhysicsObject myObj(10, 10, 50, sf::Color::Red);
+        myObj.CreateShape();
+
+        PhysicsObject otherObj(50, 50, 10, sf::Color::Blue);
+        otherObj.CreateShape();
+
+        sf::Vector2i cursorPos;
+
+        // Window loop
+        while (window.isOpen())
         {
-            switch (evnt.type)
-            {
-            case sf::Event::Closed:
-                window.close();
-                break;
+            sf::Event evnt;
 
-            case sf::Event::Resized:
-                // Print current screen size
-                printf("New Window Width: %i New Window Height: %i\n", evnt.size.width, evnt.size.height);
-                break;
-            case sf::Event::TextEntered:
-                if (evnt.text.unicode < 128)
+            while (window.pollEvent(evnt))
+            {
+                switch (evnt.type)
                 {
-                    printf("%c", evnt.text.unicode);
+                case sf::Event::Closed:
+                    window.close();
+                    break;
+
+                case sf::Event::Resized:
+                    // Print current screen size
+                    printf("New Window Width: %i New Window Height: %i\n", evnt.size.width, evnt.size.height);
+                    break;
+                case sf::Event::TextEntered:
+                    if (evnt.text.unicode < 128)
+                    {
+                        printf("%c", evnt.text.unicode);
+                    }
+                case sf::Event::MouseMoved:
+                    cursorPos = sf::Mouse::getPosition(window);
+                    break;
                 }
             }
+
+            // TODO: Detect what object is mouse houvering on click and be able to move just the selected object
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+
+                myObj.shape.setPosition(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+            }
+
+            // Define what renderer will draw to screen
+            window.clear(sf::Color(84, 65, 133));
+            window.draw(myObj.shape); // TODO: Create an array with all the objects to be rendered and render the whole array
+            window.draw(otherObj.shape);
+            window.display();
         }
 
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-        {
-            sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-
-            myObj.shape.setPosition(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
-        }
-
-        // Define what renderer will draw to screen
-        window.clear(sf::Color(84, 65, 133));
-        window.draw(myObj.shape);
-        window.display();
+        return 0;
     }
-
-    return 0;
-}
+};
