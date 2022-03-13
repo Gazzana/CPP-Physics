@@ -33,7 +33,8 @@ This project is a physics engine that will be able to calculate gravity, forces,
     https://www.sfml-dev.org/index.php
 </ul>
 
-<li>C++ - Also used c++ for this engine, this is litetally my first project with c++, but is i'm used to scripting in c# and java, two languages that have similiarites with c++</li>
+<li>
+  C++ - Also used C++ for this engine, this is literally my first project with C++, but is i'm used to scripting in C# and java, two languages that have similarities with C++</li>
 
 <h3 align="center">Contact</h3>
 
