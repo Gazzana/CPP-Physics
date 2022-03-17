@@ -12,12 +12,13 @@ public:
 	sf::Color color;
 
 	sf::RectangleShape shape;
-	static int ObjectsCount;
+	// int ObjectsCount;
 
 	// Declare functions
 
-	PhysicsObject(float width, float height, float weight, sf::Color color, int ObjectsCount = ObjectsCount);
-	//~PhysicsObject() {ObjectsCount--;}
+	PhysicsObject(float width, float height, float weight, sf::Color color);
+
+	~PhysicsObject();
 
 	void CreateShape();
 

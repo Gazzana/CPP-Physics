@@ -1,15 +1,21 @@
 #include "PhysicsObject.h"
-#include "main.cpp"
+// #include "main.cpp"
 #include <SFML/Graphics.hpp>
 
 // Constructor will have parameters to define every variable in the PhysicsObject class
-PhysicsObject::PhysicsObject(float width, float height, float weight, sf::Color color, int ObjectsCount = PhysicsObject::ObjectsCount)
+PhysicsObject::PhysicsObject(float width, float height, float weight, sf::Color color)
 {
 	PhysicsObject::width = width;
 	PhysicsObject::height = height;
 	PhysicsObject::weight = weight;
 	PhysicsObject::color = color;
-	PhysicsObject::ObjectsCount -= 1;
+	// PhysicsObject::ObjectsCount += 1;
+}
+
+// Destructor will only be responsable for restauring the "ObjectsCount" variable
+PhysicsObject::~PhysicsObject()
+{
+	// PhysicsObject::ObjectsCount--;
 }
 
 // Assign functions
@@ -19,6 +25,7 @@ void PhysicsObject::CreateShape()
 	sf::RectangleShape shape(sf::Vector2f(width, height));
 	shape.setFillColor(color);
 	shape.setOrigin(width / 2, height / 2);
+
 
 	PhysicsObject::shape = shape;
 }
