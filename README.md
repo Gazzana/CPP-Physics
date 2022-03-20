@@ -38,4 +38,4 @@ This project is a physics engine that will be able to calculate gravity, forces,
 
 <h3 align="center">Contact</h3>
 
-lucasgazzana@gmail.com
+lucasgazzana.dev@gmail.com
