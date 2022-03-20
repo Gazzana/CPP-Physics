@@ -1,37 +1,36 @@
 #include "PhysicsObject.h"
-// #include "main.cpp"
 #include <SFML/Graphics.hpp>
 
+int ObjectsCount;
+
 // Constructor will have parameters to define every variable in the PhysicsObject class
-PhysicsObject::PhysicsObject(float width, float height, float weight, sf::Color color)
+PhysicsObject::PhysicsObject(float mass, sf::Color color)
 {
-	PhysicsObject::width = width;
-	PhysicsObject::height = height;
-	PhysicsObject::weight = weight;
+	PhysicsObject::mass = mass;
 	PhysicsObject::color = color;
-	// PhysicsObject::ObjectsCount += 1;
+	PhysicsObject::ObjectsCount = ObjectsCount + 1; // ObjCount += 1;
 }
 
 // Destructor will only be responsable for restauring the "ObjectsCount" variable
 PhysicsObject::~PhysicsObject()
 {
-	// PhysicsObject::ObjectsCount--;
+	ObjectsCount--;
 }
 
 // Assign functions
 
-void PhysicsObject::CreateShape()
+void PhysicsObject::CreateCircle(float radius)
 {
-	sf::RectangleShape shape(sf::Vector2f(width, height));
+	sf::CircleShape shape(radius);
 	shape.setFillColor(color);
-	shape.setOrigin(width / 2, height / 2);
-
+	shape.setOrigin(radius / 2, radius / 2);
 
 	PhysicsObject::shape = shape;
 }
 
 void PhysicsObject::ApplyGravity(float gravityForce)
 {
+
 }
 
 // Detect if mouse x and y coords match with some PhysicsObject coords
